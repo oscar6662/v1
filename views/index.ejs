@@ -1,0 +1,101 @@
+<% let time = new Date().getTime();  %>
+<% let years, months, weeks, days, hours, minutes, seconds; %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Document</title>
+</head>
+
+<body>
+    <%- include('header') -%>
+    <main class="grid col">
+    <% for (var i = 0; i < video.categories.length; i++) {%>
+        <div class="<%= video.categories[i].title %>">
+            <h2><%= video.categories[i].title %></h2>
+            <div class="row">
+                <% for (var u = 0; u < Object.keys(video.categories[i].videos).length; u++) { %>
+                        <div class="myndband<%= video.videos[video.categories[i].videos[u] - 1].id %> col col-4 col-sm-12 myndband">%>
+                            <a href="video/<%= video.videos[video.categories[i].videos[u] - 1].id %>">
+                                <div class="myndband-poster">
+                                    <div class="image">
+                                        <img src="<%= video.videos[video.categories[i].videos[u] - 1].poster %>">
+                                        <div class="myndband-poster-time">
+                                            <% let min = Math.floor(video.videos[video.categories[i].videos[u] - 1].duration/60) %>
+                                            <% let sec = video.videos[video.categories[i].videos[u] - 1].duration%60 %>
+                                            <p><%= ('0' +min).slice(-2) +":"+('0' +sec).slice(-2) %></p>
+                                        </div>
+                                    </div>
+                                    <div class="myndband-title">
+                                        <p><%= video.videos[video.categories[i].videos[u] - 1].title %></p>
+                                    </div>
+                                    <div class="myndband-time">
+                                        
+                                        <% let timeCreated =  time - video.videos[video.categories[i].videos[u] - 1].created;   %>
+                                        <% if (timeCreated / 3.154e10 >= 1) {                                                   %>
+                                        <%      years = Math.floor(timeCreated / 3.154e10);                                     %>
+                                        <% } else if (timeCreated / 2.628e9 >= 1) {                                             %>
+                                        <%      months = Math.floor(timeCreated / 2.628e9);                                     %>
+                                        <% } else if (timeCreated / 6.048e8 >= 1) {                                             %>
+                                        <%      weeks = Math.floor(timeCreated / 6.048e8);                                      %>
+                                        <% } else if (timeCreated / 8.64e7 >= 1) {                                              %>
+                                        <%      days = Math.floor(timeCreated / 8.64e7);                                        %>
+                                        <% } else {                                                                             %>
+                                        <%      hours = Math.floor(timeCreated / 3.6e6);                                        %>
+                                        <% }                                                                                    %>
+                                        <% if (seconds / 60 >= 1) {                                                             %>
+                                        <%      minutes = Math.floor(seconds / 60);                                             %>
+                                        <%      seconds = seconds - 60 * minutes;                                               %>
+                                        <% }                                                                                    %>
+                                        <%    if (years != 0) {                                                                 %>                  
+                                        <%      if (years == 1) {                                                               %>
+                                        <%        timeCreated = `Fyrir 1 ári síðan`;                                                   %>
+                                        <%    } else {                                                                          %>
+                                        <%        timeCreated = `Fyrir ${years} árum síðan`;                                           %>
+                                        <%      }                                                                               %>
+                                        <%    } else if (months != 0) {                                                         %>
+                                        <%      if (months == 1) {                                                              %>
+                                        <%        timeCreated = `Fyrir 1 mánuði síðan`;                                                %>
+                                        <%       } else {                                                                       %>
+                                        <%        timeCreated = `Fyrir ${months} mánuðum síðan`;                                       %>
+                                        <%      }                                                                               %>
+                                        <%    } else if (weeks != 0) {                                                          %>
+                                        <%      if (weeks == 1) {                                                               %>
+                                        <%        timeCreated = `Fyrir 1 viku síðan`;                                                  %>
+                                        <%      } else {                                                                        %>
+                                        <%        timeCreated = `Fyrir ${weeks} vikum síðan`;                                          %>
+                                        <%      }                                                                               %>
+                                        <%    } else if (days != 0) {                                                           %>
+                                        <%      if (days == 1) {                                                                %>
+                                        <%        timeCreated = `Fyrir 1 degi síðan`;                                                  %>
+                                        <%      } else {                                                                        %>
+                                        <%        timeCreated = `Fyrir ${days} dögum síðan`;                                           %>
+                                        <%      }                                                                               %>
+                                        <%    } else {                                                                          %>
+                                        <%      if (hours == 1) {                                                               %>
+                                        <%        timeCreated = `Fyrir 1 klukkutíma síðan`;                                            %>
+                                        <%      } else {                                                                        %>
+                                        <%        timeCreated = `Fyrir ${hours} klukkustundum síðan`;                                  %>
+                                        <%      }                                                                               %>
+                                        <%    }                                                                                 %>
+                                        <%= timeCreated %>       
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                <%}%>
+            </div>
+            <div class="col offset-col-1 col-10">
+                <div class="rect">
+
+                </div>
+            </div>
+        </div>
+    <% } %>
+    </main>
+</body>
+<%- include('footer') -%>
+</html>

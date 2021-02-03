@@ -1,0 +1,117 @@
+main {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer,
+header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  text-align: center;
+
+  a {
+    color: #000;
+    font-family: arial, sans-serif;
+  }
+}
+
+.header-text {
+  h1 {
+    font-family: arial, sans-serif;
+    font-size: 54px;
+    font-weight: bold;
+    -webkit-hyphens: manual;
+    -ms-hyphens: manual;
+    hyphens: manual;
+
+    @media (max-width: 800px) {
+      font-size: 32px;
+    }
+  }
+
+  .small {
+    display: none;
+
+    @media (max-width: 400px) {
+      display: block;
+    }
+  }
+
+  .big {
+    display: none;
+
+    @media (min-width: 400px) {
+      display: block;
+    }
+  }
+}
+
+.nýleg,
+.kennslumyndbönd,
+.skemmtimyndbönd {
+  h2 {
+    font-family: arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 20px;
+  }
+}
+
+.myndband-poster {
+  padding-bottom: 20px;
+
+  .image {
+    color: #fff;
+    padding-right: 20px;
+    position: relative;
+    text-align: center;
+
+    .myndband-poster-time {
+      background: rgba(0, 0, 0, 0.5);
+      bottom: 15px;
+      padding: 0.3em;
+      position: absolute;
+      right: 25px;
+
+      p {
+        color: #fff;
+        font-family: arial, sans-serif;
+      }
+    }
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .myndband-title {
+    p {
+      color: #000;
+      font-family: arial, sans-serif;
+      font-size: 1.1em;
+      font-weight: 700;
+      padding-right: 10px;
+    }
+  }
+
+  .myndband-time {
+    color: #000;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+  }
+}
+
+.rect {
+  background-color: #000;
+  height: 1px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}

@@ -1,0 +1,91 @@
+.title {
+  font-family: omnes-pro, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  justify-content: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+
+  @media (max-width: 800px) {
+    font-size: 24px;
+  }
+}
+
+#video {
+  border: 3px #808080;
+  border-style: solid none;
+  max-width: 1260px;
+  width: 100%;
+}
+
+.controls {
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.controls div {
+  padding-bottom: 40px;
+  padding-top: 20px;
+
+  .back {
+    background-image: url('../img/back.svg');
+  }
+
+  .playpause {
+    background-image: url('../img/play.svg');
+  }
+
+  .mute {
+    background-image: url('../img/mute.svg');
+  }
+
+  .fs {
+    background-image: url('../img/fullscreen.svg');
+  }
+
+  .next {
+    background: url('../img/next.svg');
+  }
+
+  .back,
+  .playpause,
+  .mute,
+  .fs,
+  .next {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    height: 50px;
+    margin-right: 10px;
+    outline: none;
+    overflow: hidden;
+    width: 50px;
+  }
+}
+
+.description {
+  font-family: arial, sans-serif;
+  padding-bottom: 5px;
+}
+
+.related {
+  h2 {
+    font-family: omnes-pro, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .related2 {
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+}
