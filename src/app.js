@@ -23,13 +23,11 @@ app.get('/:userQuery',(req,res)=>{
 }); 
 app.get('/video/:userQuery',(req,res)=>{
   let nr= req.params.userQuery;
-  if(nr == '1' || nr == '2' || nr == '3' || nr == '4' || nr == '5' || nr == '6'){
-
-      let video = lib.getRqst();
-      
-      res.render('index',{video:video});
- 
-    
+  let video = lib.getRqst();
+  let tengd = lib.tengd(nr);
+  console.log(tengd);
+  if(lib.avlvideos(nr)){      
+      res.render('video',{video:video,id:nr,tengd:tengd});
   }else{
     res.status(404).send('what?')
   }
