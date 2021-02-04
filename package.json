@@ -4,8 +4,8 @@
   "description": "[Kynning í fyrirlestri](https://youtu.be/pCEHnurbuCU).",
   "main": "src/app.js",
   "scripts": {
-    "sass": "node-sass --source-map-embed styles/styles.scss -o css ",
-    "sass-watch": "npm run sass && node-sass --source-map-embed --watch styles/styles.scss -o css",
+    "sass": "node-sass --source-map-embed styles/styles.scss -o public/css ",
+    "sass-watch": "npm run sass && node-sass --source-map-embed --watch styles/styles.scss -o public/css",
     "lint": "stylelint styles/config.scss styles/footer.scss styles/grid.scss styles/main.scss styles/myndbond.scss styles/styles.scss styles/video.scss",
     "esLint": "npx eslint src/app.js src/videos.js",
     "install": "npm install --save-dev node babel browser-sync concurrently eslint node-sass rollup stylelint stylelint-config-sass-guidelines stylelint-config-standard eslint-config-airbnb eslint-plugin-import",
