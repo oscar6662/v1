@@ -3,18 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../public/css/styles.css">
 	<title>Fræðslumyndbandsleigan</title>
 </head>
 <body>
 	<script src="../js/myndband.js"></script>
-	<header>
-        <div class="row col col-12 title">
-            <!--Title, depending on the video Goes Here -->
-            <h2><%= video.videos[id].title %></h2>
-            <div class="row"></div>
-        </div>
-	</header>
+	<%- include('header2') -%>
 	<main class="grid">
 		<div class="row col col-12">
 			<figure class="videoContainer">
@@ -31,19 +25,19 @@
 			<div class="row related2">
                 <!--Related Video Go Here -->
                 <% for(var i = 0; i< tengd.length; i+=2){%>
-                    <a href="video/<%=video.videos[tengd[i]].id%>">
-                    <div class="myndband<%=video.videos[tengd[i]].id%> col col-4 col-sm-12 myndband">
+                    <a href="video/<%=video.videos[tengd[i] - 1].id%>">
+                    <div class="myndband<%=video.videos[tengd[i] - 1].id%> col col-4 col-sm-12 myndband">
                         <div class="myndband-poster">
                             <div class="image">
-                                <img src=".<%=video.videos[tengd[i]].poster%>">
+                                <img src=".<%=video.videos[tengd[i] - 1].poster%>">
                                 <div class="myndband-poster-time">
-                                    <% let min = Math.floor(video.videos[tengd[i]].duration/60) %>
-                                    <% let sec = video.videos[tengd[i]].duration%60 %>
+                                    <% let min = Math.floor(video.videos[tengd[i] - 1].duration/60) %>
+                                    <% let sec = video.videos[tengd[i] - 1].duration%60 %>
                                     <p><%= ('0' +min).slice(-2) +":"+('0' +sec).slice(-2) %></p>
                                 </div>
                             </div>
                             <div class="myndband-title">
-                                <p><%=video.videos[tengd[i]].title%></p>
+                                <p><%=video.videos[tengd[i] - 1].title%></p>
                             </div>
                             <div class="myndband-time">
                                 <%=tengd[i+1]%>
@@ -56,11 +50,6 @@
 			</div>
 		</div>
 	</main>
-	<footer>
-		<div class="col col-6 col-md-9">
-			<div class="rect"></div>
-			<a href="../">Til baka</a>
-      </div>
-	</footer>
+    <%- include('footer2') -%>
 </body>
 </html>

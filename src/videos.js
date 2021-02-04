@@ -8,7 +8,7 @@ function getRqst() {
 
 function avlvideos(nr) {
   for (let i = 0; i < videos.videos.length; i += 1) {
-    if (videos.videos[i].id === nr) {
+    if (Number(videos.videos[i].id) === Number(nr + 1)) {
       return true;
     }
   }
@@ -72,7 +72,7 @@ function tengdf(nr) {
   const tengd = [];
   for (let i = 0; i < videos.videos[nr].related.length; i += 1) {
     tengd.push(videos.videos[nr].related[i]);
-    tengd.push(timef(videos.videos[nr].related[i]));
+    tengd.push(timef(videos.videos[nr].related[i] - 1));
   }
   return tengd;
 }

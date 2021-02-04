@@ -1,5 +1,5 @@
 <% let time = new Date().getTime();  %>
-<% let years, months, weeks, days, hours, minutes, seconds; %>
+<% let years = 0, months = 0, weeks = 0, days = 0, hours = 0, minutes = 0, seconds = 0; %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@
     <%- include('header') -%>
     <main class="grid col">
     <% for (var i = 0; i < video.categories.length; i++) {%>
-        <div class="<%= video.categories[i].title %>">
+        <div class="video-title <%= video.categories[i].title %>">
             <h2><%= video.categories[i].title %></h2>
             <div class="row">
                 <% for (var u = 0; u < Object.keys(video.categories[i].videos).length; u++) { %>
