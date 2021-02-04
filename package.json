@@ -2,18 +2,15 @@
   "name": "vef2-2021-v1",
   "version": "1.0.0",
   "description": "[Kynning í fyrirlestri](https://youtu.be/pCEHnurbuCU).",
-  "main": ".eslintrc.js",
+  "main": "src/app.js",
   "scripts": {
-    "browser-sync": "browser-sync start --server --files",
-    "sass-nomap": "node-sass styles.scss styles.css",
     "sass": "node-sass --source-map-embed styles/styles.scss -o css ",
     "sass-watch": "npm run sass && node-sass --source-map-embed --watch styles/styles.scss -o css",
-    "dev": "concurrently npm:sass-watch npm:browser-sync",
-    "lint": "stylelint styles.scss ./**/*.scss",
-    "esLint": "npx eslint ./**/*.js",
-    "test": "concurrently npm:lint npm:esLint",
-    "rollup": "rollup js/test.js --format iife --name 'myBundle' --file bundle.js",
-    "install": "npm install --save-dev babel browser-sync concurrently eslint node-sass rollup stylelint stylelint-config-sass-guidelines stylelint-config-standard"
+    "lint": "stylelint styles/config.scss styles/footer.scss styles/grid.scss styles/main.scss styles/myndbond.scss styles/styles.scss styles/video.scss",
+    "esLint": "npx eslint src/app.js src/videos.js",
+    "install": "npm install --save-dev node babel browser-sync concurrently eslint node-sass rollup stylelint stylelint-config-sass-guidelines stylelint-config-standard eslint-config-airbnb eslint-plugin-import",
+    "start": "cd src && node app.js",
+    "test": "npm run esLint && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -27,18 +24,20 @@
   "homepage": "https://github.com/oscar6662/v1#readme",
   "dependencies": {
     "ejs": "^3.1.5",
+    "eslint-plugin-import": "^2.22.1",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "node": "^15.4.0",
     "sass": "^1.32.5"
   },
   "devDependencies": {
     "babel": "^6.23.0",
     "browser-sync": "^2.26.14",
     "concurrently": "^5.3.0",
-    "eslint": "^7.18.0",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "node": "^15.7.0",
     "node-sass": "^5.0.0",
-    "rollup": "^2.38.1",
+    "rollup": "^2.38.4",
     "stylelint": "^13.9.0",
     "stylelint-config-sass-guidelines": "^7.1.0",
     "stylelint-config-standard": "^20.0.0"

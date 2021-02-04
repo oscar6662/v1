@@ -19,7 +19,7 @@
 		<div class="row col col-12">
 			<figure class="videoContainer">
                 <!--Video and Buttons Go Here -->
-                <video id="video" controls preload="metadata" poster="<%=video.videos[id].poster%>">
+                <video class="video" controls preload="metadata" poster="<%=video.videos[id].poster%>">
                     <source src=".<%=video.videos[id].video%>" type="video/mp4" />
                 </video>
                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio nisi, blandit quis turpis nec, ultrices placerat ante. Suspendisse viverra enim id tempus interdum.</p>
@@ -31,7 +31,7 @@
 			<div class="row related2">
                 <!--Related Video Go Here -->
                 <% for(var i = 0; i< tengd.length; i+=2){%>
-                    <a href="video/<%=video.videos[tengd[i]].id%>"></a>
+                    <a href="video/<%=video.videos[tengd[i]].id%>">
                     <div class="myndband<%=video.videos[tengd[i]].id%> col col-4 col-sm-12 myndband">
                         <div class="myndband-poster">
                             <div class="image">
@@ -46,9 +46,12 @@
                                 <p><%=video.videos[tengd[i]].title%></p>
                             </div>
                             <div class="myndband-time">
+                                <%=tengd[i+1]%>
                             </div>
                         </div>
+                    </a>
                     </div>
+                    
                 <% }%>
 			</div>
 		</div>
