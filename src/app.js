@@ -14,7 +14,7 @@ app.get('/:userQuery', (req, res) => {
     const video = lib.getRqst();
     res.render('index', { video });
   } else {
-    res.status(404).send('Page not found');
+    res.render('error', { url: req.url });
   }
 });
 
@@ -25,7 +25,12 @@ app.get('/video/:userQuery', (req, res) => {
   if (lib.avlvideos(nr)) {
     res.render('video', { video, id: nr, tengd });
   } else {
-    res.status(404).send('Page not found');
+    res.render('error', { url: req.url });
   }
 });
+
+app.get('*', (req, res) => {
+  res.render('error', { url: req.url });
+});
+
 app.listen(port);
