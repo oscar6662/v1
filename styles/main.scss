@@ -79,6 +79,17 @@ header {
     position: relative;
     text-align: center;
   }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .myndband-time {
+    color: #000;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+  }
 }
 
 .myndband-poster-time {
@@ -91,17 +102,6 @@ header {
   p {
     color: #fff;
     font-family: arial, sans-serif;
-  }
-
-  img {
-    object-fit: cover;
-    width: 100%;
-  }
-
-  .myndband-time {
-    color: #000;
-    font-family: arial, sans-serif;
-    font-size: 1em;
   }
 }
 
